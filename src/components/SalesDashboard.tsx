@@ -30,11 +30,11 @@ export default function SalesDashboard() {
   return (
     <div className="w-full h-full p-1">
       <Card className="w-full h-full bg-black text-white border-1 shadow-2xl overflow-hidden rounded-xl">
-        <div className="h-full flex flex-col p-2 space-y-2">
+        <div className="h-full flex flex-col p-1 space-y-2">
           {/* Header with icon and title */}
           <div className="flex items-center gap-2">
             <div className="text-cyan-400 bg-[#0d2a47] p-2 rounded-lg shadow-lg">
-              <BarChartIcon className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
+              <BarChartIcon className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-white" />
             </div>
             <div>
               <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-cyan-400 tracking-wide">

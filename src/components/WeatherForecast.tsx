@@ -1,5 +1,4 @@
 import React from "react";
-import DayCard from "./WeatherForecast/DayCard";
 import type { DayForecast } from "../types/types";
 
 const WeatherForecast: React.FC = () => {
@@ -69,6 +68,45 @@ const WeatherForecast: React.FC = () => {
       isSunday: false,
     },
   ];
+
+  const DayCard: React.FC<{ forecast: DayForecast }> = ({ forecast }) => {
+    const { date, day, condition, highTemp, lowTemp, isWeekend, isSunday } =
+      forecast;
+
+    return (
+      <div className="flex flex-col items-center text-center">
+        <div
+          className={`text-xs font-semibold ${
+            isSunday
+              ? "text-red-500"
+              : isWeekend
+              ? "text-blue-400"
+              : "text-white"
+          }`}
+        >
+          {date}({day})
+        </div>
+        <div className="text-xl my-1">
+          {(() => {
+            switch (condition) {
+              case "sunny":
+                return "☀️";
+              case "cloudy":
+                return "☁️";
+              case "rainy":
+                return "🌧️";
+              default:
+                return "☀️";
+            }
+          })()}
+        </div>
+        <div className="flex gap-2 text-xs">
+          <span className="text-red-500">{highTemp}</span>
+          <span className="text-blue-400">{lowTemp}</span>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="border border-blue-900 rounded-lg p-4 from-blue-950 to-blue-900 w-full shadow-xl">

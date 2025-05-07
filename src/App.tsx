@@ -8,11 +8,11 @@ import CandlestickChart from "./components/CandlestickChart";
 
 function App() {
   return (
-    <div className="min-h-screen bg-black p-2">
-      <div className="h-screen p-3">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 h-full">
+    <div className="min-h-screen bg-black p-1">
+      <div className="h-screen p-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 h-full">
           {/* Left column - takes 2/3 width on medium screens and up */}
-          <div className="md:col-span-2 flex flex-col gap-3 h-full">
+          <div className="md:col-span-2 flex flex-col gap-1 h-full">
             {/* Sales Dashboard */}
             <SalesDashboard />
 
