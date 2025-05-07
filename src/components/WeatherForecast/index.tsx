@@ -1,6 +1,6 @@
 import React from "react";
 import DayCard from "./DayCard";
-import type { DayForecast } from "./types";
+import type { DayForecast } from "../../types/types";
 
 interface WeatherForecastProps {
   city: string;

@@ -1,56 +1,67 @@
-import { DayForecast } from '../components/WeatherForecast/types';
+import type { DayForecast } from "../types/types";
 
-export const nagoyaForecasts: DayForecast[] = [
+export const weatherData: DayForecast[] = [
   {
-    date: 17,
-    day: '木',
-    condition: 'sunny',
+    date: "17",
+    day: "木",
+    condition: "sunny",
     highTemp: 25,
-    lowTemp: 13
+    lowTemp: 13,
+    isWeekend: false,
+    isSunday: false,
   },
   {
-    date: 18,
-    day: '金',
-    condition: 'cloudy',
+    date: "18",
+    day: "金",
+    condition: "cloudy",
     highTemp: 25,
-    lowTemp: 15
+    lowTemp: 15,
+    isWeekend: false,
+    isSunday: false,
   },
   {
-    date: 19,
-    day: '土',
-    condition: 'sunny',
+    date: "19",
+    day: "土",
+    condition: "sunny",
     highTemp: 29,
     lowTemp: 17,
-    isWeekend: true
+    isWeekend: true,
+    isSunday: false,
   },
   {
-    date: 20,
-    day: '日',
-    condition: 'rainy',
+    date: "20",
+    day: "日",
+    condition: "rainy",
     highTemp: 22,
     lowTemp: 14,
     isWeekend: true,
-    isSunday: true
+    isSunday: true,
   },
   {
-    date: 21,
-    day: '月',
-    condition: 'sunny',
+    date: "21",
+    day: "月",
+    condition: "sunny",
     highTemp: 26,
-    lowTemp: 13
+    lowTemp: 13,
+    isWeekend: false,
+    isSunday: false,
   },
   {
-    date: 22,
-    day: '火',
-    condition: 'cloudy',
+    date: "22",
+    day: "火",
+    condition: "cloudy",
     highTemp: 24,
-    lowTemp: 17
+    lowTemp: 17,
+    isWeekend: false,
+    isSunday: false,
   },
   {
-    date: 23,
-    day: '水',
-    condition: 'rainy',
+    date: "23",
+    day: "水",
+    condition: "rainy",
     highTemp: 22,
-    lowTemp: 13
-  }
+    lowTemp: 13,
+    isWeekend: false,
+    isSunday: false,
+  },
 ];

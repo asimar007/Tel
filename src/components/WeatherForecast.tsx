@@ -1,6 +1,6 @@
 import React from "react";
 import DayCard from "./WeatherForecast/DayCard";
-import type { DayForecast } from "./WeatherForecast/types";
+import type { DayForecast } from "../types/types";
 
 const WeatherForecast: React.FC = () => {
   // Hardcoded forecast data based on the image

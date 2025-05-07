@@ -1,5 +1,5 @@
 import React from "react";
-import type { DayForecast } from "./types";
+import type { DayForecast } from "../../types/types";
 
 // Weather condition icons
 const weatherIcons = {

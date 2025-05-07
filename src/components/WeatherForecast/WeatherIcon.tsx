@@ -1,5 +1,5 @@
 import React from "react";
-import type { WeatherCondition } from "./types";
+import type { WeatherCondition } from "../../types/types";
 
 interface WeatherIconProps {
   condition: WeatherCondition;
