@@ -29,7 +29,7 @@ export default function SalesDashboard() {
 
   return (
     <div className="w-full h-full p-1">
-      <Card className="w-full h-full bg-black text-white border-1 shadow-2xl overflow-hidden rounded-xl">
+      <Card className="w-full h-full bg-black text-white border-1 shadow-2xl overflow-hidden rounded-sm">
         <div className="h-full flex flex-col p-1 space-y-2">
           {/* Header with icon and title */}
           <div className="flex items-center gap-2">
