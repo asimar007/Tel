@@ -1,37 +1,69 @@
-import React from "react";
+import React, { useEffect, useRef, memo } from "react";
 
 const CandlestickChart: React.FC = () => {
+  const container = useRef<HTMLDivElement>(null);
+  const scriptRef = useRef<HTMLScriptElement | null>(null);
+
+  useEffect(() => {
+    if (scriptRef.current || !container.current) return;
+
+    const script = document.createElement("script");
+    scriptRef.current = script;
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      symbols: [["WHSELFINVEST:JAPAN225CFD|1M|JPY"]],
+      chartOnly: false,
+      width: "100%",
+      height: "100%",
+      locale: "ja",
+      colorTheme: "light",
+      autosize: true,
+      showVolume: false,
+      showMA: false,
+      hideDateRanges: false,
+      hideMarketStatus: false,
+      hideSymbolLogo: false,
+      scalePosition: "right",
+      scaleMode: "Normal",
+      fontFamily:
+        "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+      fontSize: "10",
+      noTimeScale: false,
+      valuesTracking: "1",
+      changeMode: "price-and-percent",
+      chartType: "candlesticks",
+      upColor: "#22ab94",
+      downColor: "#f7525f",
+      borderUpColor: "#22ab94",
+      borderDownColor: "#f7525f",
+      wickUpColor: "#22ab94",
+      wickDownColor: "#f7525f",
+      dateRanges: ["1d|1", "1w|15", "1m|30"],
+    });
+
+    container.current.appendChild(script);
+
+    return () => {
+      if (container.current && scriptRef.current) {
+        container.current.removeChild(scriptRef.current);
+        scriptRef.current = null;
+      }
+    };
+  }, []);
+
   return (
-    <div className="border border-blue-500 rounded-lg p-3 flex-grow flex items-center justify-center">
-      <div className="text-white w-full">
-        <h2 className="text-xl font-bold mb-2">
-          JAPAN CFD (Candlestick Charts)
-        </h2>
-        <div className="flex justify-center items-end space-x-2 h-20">
-          <div className="w-6 bg-green-500 h-12 relative">
-            <div className="absolute top-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-green-500"></div>
-            <div className="absolute bottom-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-green-500"></div>
-          </div>
-          <div className="w-6 bg-red-500 h-8 relative">
-            <div className="absolute top-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-red-500"></div>
-            <div className="absolute bottom-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-red-500"></div>
-          </div>
-          <div className="w-6 bg-green-500 h-10 relative">
-            <div className="absolute top-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-green-500"></div>
-            <div className="absolute bottom-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-green-500"></div>
-          </div>
-          <div className="w-6 bg-red-500 h-6 relative">
-            <div className="absolute top-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-red-500"></div>
-            <div className="absolute bottom-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-red-500"></div>
-          </div>
-          <div className="w-6 bg-green-500 h-14 relative">
-            <div className="absolute top-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-green-500"></div>
-            <div className="absolute bottom-0 left-1/2 w-0.5 h-2 -translate-x-1/2 bg-green-500"></div>
-          </div>
-        </div>
+    <div className="border border-blue-500 rounded-lg p-2 flex flex-col flex-grow h-[250px] md:h-[300px] lg:h-[350px]">
+      <div
+        className="tradingview-widget-container w-full h-full"
+        ref={container}
+      >
+        <div className="tradingview-widget-container__widget h-full"></div>
       </div>
     </div>
   );
 };
 
-export default CandlestickChart;
+export default memo(CandlestickChart);

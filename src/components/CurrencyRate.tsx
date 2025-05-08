@@ -9,7 +9,7 @@ interface CurrencyRowProps {
 const CurrencyRow: React.FC<CurrencyRowProps> = ({ currency }) => {
   return (
     <tr className="border-b border-gray-800 hover:bg-gray-900 transition-colors">
-      <td className="p-2 flex items-center gap-2">
+      <td className=" flex items-center gap-2">
         <span className="text-4xl sm:text-5xl md:text-6xl mr-1">
           {currency.flag}
         </span>
